@@ -18,3 +18,9 @@
 **/secrets.json
 **/appsettings.local.json
 .DS_Store
+
+
+artifacts/
+TestResults/
+**/logs/
+*.probe
