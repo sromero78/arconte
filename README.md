@@ -22,3 +22,5 @@ dotnet test Arconte.sln -c Release --no-build
 ```
 
 Pruebas con datos sintéticos temporales. CI adjunta TRX y auditoría NuGet. Véanse [auditoría y pendientes](docs/AUDITORIA-v0.2.0.md) y [cambios](CHANGELOG.md). El ZIP no certifica funcionamiento en ambos sistemas: faltan las pruebas manuales indicadas. Sin release estable ni fusión automática en main.
+
+**Limitación de seguridad conocida:** persisten vulnerabilidades transitivas en ImageSharp 2.x. Usar esta candidata solo con datos sintéticos/conocidos; véase la auditoría. No es una versión estable.

@@ -74,6 +74,23 @@ public sealed class RegressionTests : IDisposable
     }
 
     [Fact]
+    public async Task ExtraeXlsSinteticoSinModificarOriginal()
+    {
+        var path = Path.Combine(_dir, "libro.xls");
+        using (var book = new NPOI.HSSF.UserModel.HSSFWorkbook())
+        {
+            book.CreateSheet("Prueba").CreateRow(0).CreateCell(0).SetCellValue("Factura sintética");
+            using var stream = File.Create(path);
+            book.Write(stream);
+        }
+        var before = File.ReadAllBytes(path);
+        var result = await new DocumentTextExtractor().ExtractAsync(path, CancellationToken.None);
+        Assert.Equal(ExtractionMethod.Directo, result.Metodo);
+        Assert.Contains("Factura sintética", result.Texto);
+        Assert.Equal(before, File.ReadAllBytes(path));
+    }
+
+    [Fact]
     public async Task LotesConsecutivosConservanContenidoYRegistros()
     {
         var service = new RenameService(Path.Combine(_dir, "logs"));

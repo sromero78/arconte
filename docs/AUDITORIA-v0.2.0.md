@@ -42,3 +42,15 @@ WPF exige Windows. Publicación autocontenida win-x64, sin single-file ni trimmi
 Se intentaron dotnet build Arconte.sln y dotnet test Arconte.sln en Linux: ambos fallan con dotnet: command not found. La descarga de SDK falla por conexión al proxy. Esto no constituye compilación ni pruebas superadas. CI Windows ejecuta restore, build Release, pruebas con TRX, consulta de vulnerabilidades y publish. El ZIP/SHA-256 solo se publica tras superar pruebas. El resultado real de Actions y el TRX determinan qué ha sido verificado en ejecución; inspección estática no equivale a prueba funcional.
 
 Pendiente manual con documentos exclusivamente sintéticos, en Windows 10/11 x64 con cuenta estándar y sin runtime: primer arranque/legal, temas/DPI, perfiles, escaneo, edición y confirmación, contenido intacto, colisiones/deshacer con destino ocupado, ausencia de Ollama/OCR, análisis de cada formato con modelo local, cancelación, diez páginas OCR, CSV, Unicode y rutas largas. No declarar estable hasta completar la matriz. No se verifica equivalencia con la versión Python.
+
+## Resultados de ejecución y hallazgos concretos
+
+El workflow [41189105133](https://github.com/sromero78/arconte/actions/runs/41189105133), commit ecdbe10, compiló sin errores/advertencias y pasó 96/96 pruebas (ninguna omitida) en Windows Server 2022, SDK 8 seleccionado. Se generó ZIP autocontenido y SHA-256. Esto verifica escaneo/filtros, nombres, perfiles, lógica del ViewModel con dobles, parser/endpoints Ollama, colisiones/reversión, TXT UTF-8/UTF-16 y ODT/ODS sintéticos con bytes originales intactos. No verifica UI ni Windows 10/11 ni modelo/OCR real.
+
+La primera ejecución detectó una prueba heredada de propiedad ausente que dependía de CRLF/LF; se corrige manipulando el árbol JSON, sin rebajar la validación.
+
+La auditoría NuGet identificó ImageSharp 2.1.8 (nueve advisories), Asn1 6.0.0 y Packaging 8.0.0. Se fijan directamente parches ImageSharp 2.1.13, Asn1 8.0.1 y Packaging 8.0.1 para reducir exposición sin cambiar NPOI/OpenXML. Se añade extracción XLS sintética con contenido original intacto. La ejecución posterior de CI valida esos cambios.
+
+**Bloqueo para versión estable:** ImageSharp 2.1.13 conserva advisories altos/moderados. La rama 2.x no corrige todos; [GHSA-jjfr-hcj7-qf5w](https://github.com/advisories/GHSA-jjfr-hcj7-qf5w) exige 3.2.0/4.1.2. [NuGet 2.1.13](https://www.nuget.org/packages/SixLabors.ImageSharp/2.1.13) enumera también GHSA-j3p4-wp97-rph4, GHSA-j9gm-c75j-xc9q, GHSA-gwg2-r3hj-4w44 y GHSA-wmxv-xphr-5c9g. No se fuerza una versión mayor transitiva sin verificar compatibilidad binaria con NPOI y sus condiciones de licencia. Este ZIP es solo candidato de pruebas con datos sintéticos/conocidos; no se considera seguro para documentos no confiables. La aplicación no llama directamente a ImageSharp, pero eso no elimina el riesgo transitivo.
+
+Parches Microsoft: [Asn1](https://github.com/advisories/GHSA-447r-wph3-92pm), [Packaging](https://github.com/advisories/GHSA-f32c-w444-8ppv), [Packaging hash flooding](https://github.com/advisories/GHSA-qj66-m88j-hmgj). El informe adjunto a la última ejecución es la fuente para el estado vigente.

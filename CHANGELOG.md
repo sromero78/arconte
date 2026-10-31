@@ -15,3 +15,6 @@ Limitaciones, alcance y evidencia: docs/AUDITORIA-v0.2.0.md.
 
 - Prueba de propiedad ausente en perfiles corregida para no depender de saltos de línea CRLF/LF.
 - SDK 8 seleccionado explícitamente y acciones fijadas por SHA.
+
+- Parches transitivos ImageSharp 2.1.13, Asn1 8.0.1 y Packaging 8.0.1; persisten avisos ImageSharp documentados como bloqueo para estable.
+- Extracción XLS sintética con comprobación de bytes originales.

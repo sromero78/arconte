@@ -17,6 +17,10 @@
     <PackageReference Include="PdfPig" Version="0.1.16" />
     <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.2" />
     <PackageReference Include="NPOI" Version="2.7.1" />
+    <!-- Security patches for dependencies inherited through NPOI/OpenXML. -->
+    <PackageReference Include="SixLabors.ImageSharp" Version="2.1.13" />
+    <PackageReference Include="System.Formats.Asn1" Version="8.0.1" />
+    <PackageReference Include="System.IO.Packaging" Version="8.0.1" />
   </ItemGroup>
 
   <ItemGroup>
