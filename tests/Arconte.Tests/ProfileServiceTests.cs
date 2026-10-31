@@ -83,7 +83,9 @@ public class ProfileServiceTests : IDisposable
     public void RechazaExtensionMayusculasNoBooleana()
     {
         Rechaza(JsonValido.Replace("\"extension_mayusculas\": false", "\"extension_mayusculas\": \"no\""));
-        Rechaza(JsonValido.Replace("      \"extension_mayusculas\": false,\n", ""));
+        var sinExtension = System.Text.Json.Nodes.JsonNode.Parse(JsonValido)!;
+        sinExtension["perfiles"]!["p"]!.AsObject().Remove("extension_mayusculas");
+        Rechaza(sinExtension.ToJsonString());
     }
 
     [Fact]

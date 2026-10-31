@@ -12,3 +12,6 @@
 - CSV protege celdas que empiezan por caracteres de fórmula.
 
 Limitaciones, alcance y evidencia: docs/AUDITORIA-v0.2.0.md.
+
+- Prueba de propiedad ausente en perfiles corregida para no depender de saltos de línea CRLF/LF.
+- SDK 8 seleccionado explícitamente y acciones fijadas por SHA.
