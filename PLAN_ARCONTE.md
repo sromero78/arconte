@@ -8,3 +8,4 @@
 6. Crear GitHub Actions para pruebas y entrega de ZIP portátil en Releases, sin incluir datos personales.
 
 El número `v0.2.0` es provisional; la primera etiqueta se decidirá tras auditar el estado del código.
+
