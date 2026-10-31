@@ -1,0 +1,59 @@
+{
+  "perfil_activo": "profesional",
+  "perfiles": {
+    "profesional": {
+      "nombre_perfil": "Profesional / Corporativo",
+      "formato_fecha": "YYYYMMDD",
+      "separador": " ",
+      "longitud_codigo": 3,
+      "regla_caja": "mayusculas_codigo_resto_capitalizado",
+      "extension_mayusculas": false,
+      "orden_estructura": ["FECHA", "CODIGO", "MATERIA", "IDENTIFICADOR"],
+      "catalogo_codigos": [
+        { "codigo": "ACT", "familia": "Documentación Administrativa", "concepto": "Acta" },
+        { "codigo": "AUT", "familia": "Documentación Administrativa", "concepto": "Autorización" },
+        { "codigo": "CIT", "familia": "Documentación Administrativa", "concepto": "Citación" },
+        { "codigo": "CMP", "familia": "Documentación Administrativa", "concepto": "Comparecencia" },
+        { "codigo": "DIL", "familia": "Documentación Administrativa", "concepto": "Diligencia" },
+        { "codigo": "OFI", "familia": "Documentación Administrativa", "concepto": "Oficio" },
+        { "codigo": "RES", "familia": "Documentación Administrativa", "concepto": "Resolución" },
+        { "codigo": "SOL", "familia": "Documentación Administrativa", "concepto": "Solicitud" },
+        { "codigo": "CER", "familia": "Documentos de Acreditación", "concepto": "Certificado" },
+        { "codigo": "DID", "familia": "Documentos de Acreditación", "concepto": "Documento de identidad" },
+        { "codigo": "JUS", "familia": "Documentos de Acreditación", "concepto": "Justificante" },
+        { "codigo": "CON", "familia": "Documentación de Relaciones Jurídicas", "concepto": "Contrato" },
+        { "codigo": "FAC", "familia": "Documentación Económica", "concepto": "Factura" },
+        { "codigo": "NOM", "familia": "Documentación Económica", "concepto": "Nómina" },
+        { "codigo": "PRE", "familia": "Documentación Económica", "concepto": "Presupuesto" },
+        { "codigo": "RCB", "familia": "Documentación Económica", "concepto": "Recibo" },
+        { "codigo": "INF", "familia": "Documentación Sanitaria", "concepto": "Informe" },
+        { "codigo": "PDI", "familia": "Documentación Sanitaria", "concepto": "Prueba diagnóstica" },
+        { "codigo": "ATE", "familia": "Documentación Judicial y Policial", "concepto": "Atestado" },
+        { "codigo": "DEC", "familia": "Documentación Judicial y Policial", "concepto": "Declaración" },
+        { "codigo": "PRO", "familia": "Documentación Judicial y Policial", "concepto": "Procedimiento" },
+        { "codigo": "RCR", "familia": "Documentación Judicial y Policial", "concepto": "Recurso" },
+        { "codigo": "CIR", "familia": "Normativa y Doctrina", "concepto": "Circular" },
+        { "codigo": "INS", "familia": "Normativa y Doctrina", "concepto": "Instrucción" },
+        { "codigo": "JUR", "familia": "Normativa y Doctrina", "concepto": "Jurisprudencia" },
+        { "codigo": "LEG", "familia": "Normativa y Doctrina", "concepto": "Legislación" }
+      ]
+    },
+    "personal": {
+      "nombre_perfil": "Personal",
+      "formato_fecha": "YYYYMMDD",
+      "separador": " ",
+      "longitud_codigo": 3,
+      "regla_caja": "mayusculas_codigo_resto_capitalizado",
+      "extension_mayusculas": false,
+      "orden_estructura": ["FECHA", "CODIGO", "MATERIA", "IDENTIFICADOR"],
+      "catalogo_codigos": [
+        { "codigo": "FAC", "familia": "Economía Personal", "concepto": "Factura" },
+        { "codigo": "RCB", "familia": "Economía Personal", "concepto": "Recibo" },
+        { "codigo": "INF", "familia": "Salud", "concepto": "Informe" },
+        { "codigo": "PDI", "familia": "Salud", "concepto": "Prueba diagnóstica" },
+        { "codigo": "CER", "familia": "Trámites y Documentación", "concepto": "Certificado" },
+        { "codigo": "CON", "familia": "Trámites y Documentación", "concepto": "Contrato" }
+      ]
+    }
+  }
+}
